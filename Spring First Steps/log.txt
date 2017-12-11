@@ -1,0 +1,12 @@
+Event ERROR ID = 273 date = 09.12.2017 14:13:29 message = Error for user J. Smith
+Event ERROR ID = 492 date = 09.12.2017 14:13:29 message = Error for user 2
+Event ID = 63 date = 09.12.2017 14:13:28 message = Event for user J. Smith
+Event ID = 863 date = 09.12.2017 14:13:29 message = Event for user 2
+Event INFO ID = 695 date = 09.12.2017 14:13:29 message = Info for user J. Smith
+Event INFO ID = 838 date = 09.12.2017 14:13:29 message = Info for user 2
+Event ERROR ID = 359 date = 10.12.2017 10:41:51 message = Error for user John Smith
+Event ERROR ID = 858 date = 10.12.2017 10:41:51 message = Error for user 2
+Event ID = 857 date = 10.12.2017 10:41:50 message = Event for user John Smith
+Event ID = 229 date = 10.12.2017 10:41:51 message = Event for user 2
+Event INFO ID = 695 date = 10.12.2017 10:41:51 message = Info for user John Smith
+Event INFO ID = 824 date = 10.12.2017 10:41:51 message = Info for user 2

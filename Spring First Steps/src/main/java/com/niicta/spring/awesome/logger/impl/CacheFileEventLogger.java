@@ -3,6 +3,9 @@ package com.niicta.spring.awesome.logger.impl;
 import com.niicta.spring.awesome.Event;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class CacheFileEventLogger extends FileEventLogger
@@ -13,6 +16,7 @@ public class CacheFileEventLogger extends FileEventLogger
     public CacheFileEventLogger(String fileName, int maxCacheSize){
         super(fileName);
         this.maxCacheSize = maxCacheSize;
+        cache = new ArrayList<Event>();
     }
 
     @Override

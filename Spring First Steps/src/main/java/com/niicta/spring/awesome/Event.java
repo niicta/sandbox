@@ -10,6 +10,8 @@ public class Event
     private Date date;
     private DateFormat df;
 
+        private EventType eventType;
+
     public Event(){
         this.id = (int)(Math.random()*1000);
     }
@@ -28,9 +30,20 @@ public class Event
         return message;
     }
 
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
+    }
+
     @Override
     public String toString(){
-        StringBuffer string = new StringBuffer("Event ");
+        StringBuilder string = new StringBuilder("Event ");
+        if (eventType != null){
+            string.append(eventType.name()).append(" ");
+        }
         string.append("ID = ").append(id)
                 .append(" date = ").append(df.format(date))
                 .append(" message = ").append(message)

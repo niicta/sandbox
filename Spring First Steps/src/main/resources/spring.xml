@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
                 http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+                http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+    <import resource="loggers.xml"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:client.properties</value>
+            </list>
+        </property>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_NEVER"/>
+    </bean>
+
     <bean id="client" class="com.niicta.spring.awesome.Client">
-        <constructor-arg type="java.lang.String" value="1"/>
-        <constructor-arg type="java.lang.String" value="J. Smith"/>
-    </bean>
-
-    <bean id="consoleEventLogger"
-          class="com.niicta.spring.awesome.logger.impl.ConsoleEventLogger">
-    </bean>
-
-    <bean id="fileEventLogger"
-          class="com.niicta.spring.awesome.logger.impl.FileEventLogger"
-          init-method="init">
-        <constructor-arg type="java.lang.String" value="log.txt"/>
-    </bean>
-
-    <bean id="cacheFileEventLogger"
-          class="com.niicta.spring.awesome.logger.impl.CacheFileEventLogger"
-          init-method="init"
-          destroy-method="destroy">
-        <constructor-arg type="java.lang.String" value="log.txt"/>
-        <constructor-arg type="int" value="1"/>
+        <constructor-arg type="java.lang.String" value="${id}"/>
+        <constructor-arg type="java.lang.String" value="${name}"/>
+        <property name="greeting" value="${greeting}"/>
     </bean>
 
     <bean id="app" class="com.niicta.spring.awesome.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="fileEventLogger"/>
+        <constructor-arg ref="combinedEventLogger"/>
     </bean>
 
     <bean id="event"
